@@ -1,5 +1,6 @@
 # codeway-nodejs
-Case of Codeway - 
+Case of Codeway
+
 Google Cloud Platform
   - PubSub 
   - Big Query 
