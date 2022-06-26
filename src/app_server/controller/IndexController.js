@@ -16,7 +16,6 @@ var env = require('dotenv').config();
  const bigquery = new BigQuery({projectId,keyPubSub});
 
 var username;
-var jsonResult;
  module.exports.home = function(req,res){
    username = req.session.username;
    res.sendFile(path.join(__dirname,'../../home.html'));
@@ -26,12 +25,13 @@ module.exports.getactivity = function(req,res){
       getUsersActivity(req,res);
       }catch(e){
          console.log("GetActivity:" + e);
+         res.send('Incorrect Activity');
       }
 }
 
  module.exports.publishJSON = function(req,res){
-   console.log("Publish JSON: " + username);
    getUserInformation(username,req);
+   req.session.username = username;
    res.redirect('/home');
 }
 
@@ -45,9 +45,10 @@ async function getUsersActivity(req,res){
    }
    const [job] = await bigquery.createQueryJob(options);
    const [rows] = await job.getQueryResults();
-   console.log(rows);
+   
    var totalUserCount = rows[0]["TotalUserCount"];
-   //Daily active user count
+
+   //new_user_count // average_session_duration //  active_user_count //date
    const tableIdGameEvents = 'GameEvents';
    const query1 = `SELECT first.Date,first.ActiveUserCount,second.DailyNewUser,third.AverageSessionDuration 
    FROM (SELECT COUNT(DISTINCT user_id) as ActiveUserCount, CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE) as Date FROM \`${projectId}.${datasetId}.${tableIdGameEvents}\` GROUP BY CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE)) first 
@@ -63,13 +64,12 @@ async function getUsersActivity(req,res){
   }
    const [job1] = await bigquery.createQueryJob(options1);
    const [rows1] = await job1.getQueryResults();
-   console.log(rows1);
 
    var json = {
       total_user: totalUserCount,
       daily_stats: []
    };
-   console.log(rows1[0]["Date"]);
+   //push daily_stast
    for(var i in rows1){
       var item = rows1[i];
       json.daily_stats.push({
@@ -79,11 +79,10 @@ async function getUsersActivity(req,res){
          "new_user_count" : item["DailyNewUser"]
       });
    }
-   console.log(JSON.stringify(json));
-   console.log(json);
+   //console.log(JSON.stringify(json));
+   //console.log(json);
    //const data = JSON.parse(json);
-
-   jsonResult = json;
+   console.log(json);
    res.render('activity',json);
 }
 async function getUserInformation(_username,req){
@@ -114,7 +113,7 @@ async function getUserInformation(_username,req){
       city: rows[0]["city"],
       user_id: rows[0]["user_id"]
    };
-   console.log("EventData: "+ JSON.stringify(EventData));
+
    publishAvroRecords(topicNameOrId,EventData);
     return true;
    }
@@ -165,8 +164,9 @@ async function publishAvroRecords(topicNameOrId,EventData) {
         return false;
       }
     };
-
-  const messageId = topic.publish(dataBuffer, callback);
-  console.log(`Avro record ${messageId} published.`);
+   console.log("JSON Log Sample: " + JSON.stringify(EventData));
+    //Publish JSON - AVRO Message
+  topic.publish(dataBuffer, callback);
+  console.log(`Avro Message published.`);
   return true;
 }

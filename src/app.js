@@ -5,7 +5,7 @@ var app = express(); // req/res
 const session = require('express-session');
 var uuid = require('uuid');
 const bodyParser = require('body-parser'); // middleware
-
+const port = process.env.PORT || 3000;
 var routerIndex = require('./app_server/routes/indexRouter');
 var authIndex = require('./app_server/routes/authRouter');
 
@@ -30,4 +30,4 @@ app.use(function(req,res,next){
 app.use('/',authIndex);
 app.use('/home',routerIndex);
 
-app.listen(8080);
+app.listen(port);
