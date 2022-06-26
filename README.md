@@ -1,2 +1,6 @@
 # codeway-nodejs
-Case of Codeway - GCP (PubSub - Big Query - Dataflow
+Case of Codeway - 
+Google Cloud Platform
+  - PubSub 
+  - Big Query 
+  - Dataflow
