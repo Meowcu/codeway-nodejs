@@ -1,16 +1,21 @@
 # codeway-nodejs
 ##Case of Codeway
 
+Codes in src folder.
+
 ###Google Cloud Platform
   - PubSub 
   - Big Query 
   - Dataflow
 
 ###Please use following command to your terminal.
+
 - npm install
+
 (It will download dependencies(package.json) for project.)
 
 start command: 
+
 - npm start
 
 
