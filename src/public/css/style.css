@@ -30,13 +30,14 @@ body {
 table {  
     font-family:sans-serif;
 }
-    td {
-      background-color:#eee;    
-    }
-    th {
-      background-color:#009;
-      color:#fff;
-    }
+.activity {
+    width: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
+}
+
+
   
 
 .login {

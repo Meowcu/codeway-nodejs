@@ -25,8 +25,6 @@ app.use(function(req,res,next){
     next();
 });
 
-
-
 app.use('/',authIndex);
 app.use('/home',routerIndex);
 
