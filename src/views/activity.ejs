@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <!-- the form awesome library is used to add icons to our form -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <link rel="stylesheet" href="/public/css/style.css" type="text/css">
+        <h1 class="header">CodeWay</h1>
+    </head>
+    <body>
+        <h2 style="text-align:center;">Welcome to Backend Developer Case Study - Activity</h2>
+        <div class="activity">
+         <table>
+            <h1>Total User Count: <%= total_user%></h1>
+            <tr>
+                <td style="width: 25%;"><h2 style="text-align:center;">Date</h2></td>
+                <td style="width: 25%;"><h2 style="text-align:center;">Average Session Duration</h2></td>
+                <td style="width: 25%;"><h2 style="text-align:center;">Active User Count</h2></td>
+                <td style="width: 25%;"><h2 style="text-align:center;">New User Count</h2></td>
+            </tr>
+            <% for(var i=0 ; i < daily_stats.length; i++){ %>
+                <tr>
+                    <td style="text-align: center;"><%= daily_stats[i]["date"] %></td>
+                    <td style="text-align: center;"><%= parseInt(daily_stats[i]["average_session_duration"]) %></td>
+                    <td style="text-align: center;"><%= daily_stats[i]["active_user_count"] %></td>
+                    <td style="text-align: center;"><%= daily_stats[i]["new_user_count"] %></td>
+                </tr>
+                <%}%>
+            
+         </table>
+        </div>
+    </body>
+</html>
