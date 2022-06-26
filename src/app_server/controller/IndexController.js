@@ -69,7 +69,7 @@ async function getUsersActivity(req,res){
       total_user: totalUserCount,
       daily_stats: []
    };
-   //push daily_stast
+   //push daily_stats
    for(var i in rows1){
       var item = rows1[i];
       json.daily_stats.push({
