@@ -3,8 +3,11 @@
 
 Codes in src folder.
 You can manage port .env file.
-defined PORT: 3000 and 5050
-url: localhost:3000
+
+- defined PORT: 3000 and 5050
+
+- url: localhost:3000
+
 ###Google Cloud Platform
   - PubSub 
   - Big Query 
