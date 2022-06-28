@@ -76,7 +76,6 @@ start command:
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/BigQueryGameEventsTable.PNG "BigQuery Game Events Table")
 
-1
 - BigQuery User Table
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/BigQueryUserTable.PNG "BigQuery User Table")
