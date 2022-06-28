@@ -13,13 +13,13 @@ You can manage port .env file.
   - Big Query 
   - Dataflow
 
-### Please use following command to your terminal.
+Please use following command to your terminal.
 
 - npm install
 
 (It will download dependencies(package.json) for project.)
 
-start command: 
+Start command: 
 
 - npm start
 
