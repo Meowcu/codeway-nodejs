@@ -14,9 +14,9 @@ You can manage port .env file.
   - Dataflow
 
 ### Please use following command to your terminal.
-<block>
+
 - npm install
-</block>
+
 (It will download dependencies(package.json) for project.)
 
 start command: 
