@@ -50,7 +50,7 @@ async function getUsersActivity(req,res){
 
    //new_user_count // average_session_duration //  active_user_count //date
    const tableIdGameEvents = 'GameEvents';
-   const query1 = `SELECT first.Date,first.ActiveUserCount,second.DailyNewUser,third.AverageSessionDuration 
+   const query1 = `SELECT first.Date,IFNULL(first.ActiveUserCount,0) as ActiveUserCount,IFNULL(second.DailyNewUser,0) as DailyNewUser,IFNULL(third.AverageSessionDuration,0) as AverageSessionDuration 
    FROM (SELECT COUNT(DISTINCT user_id) as ActiveUserCount, CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE) as Date FROM \`${projectId}.${datasetId}.${tableIdGameEvents}\` GROUP BY CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE)) first 
    RIGHT JOIN (SELECT COUNT(*) as DailyNewUser, CAST(timestamp_millis(CAST(insertdate AS INT64)) AS DATE) as Date 
    FROM \`${projectId}.${datasetId}.${tableId}\` GROUP BY CAST(timestamp_millis(CAST(insertdate AS INT64)) AS DATE)) second 
@@ -69,6 +69,7 @@ async function getUsersActivity(req,res){
       total_user: totalUserCount,
       daily_stats: []
    };
+   console.log(rows1);
    //push daily_stats
    for(var i in rows1){
       var item = rows1[i];
