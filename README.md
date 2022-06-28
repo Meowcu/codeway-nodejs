@@ -58,7 +58,7 @@ start command:
 
 - Subscription
 
-![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubSubscription.GCP "Pub/Sub Subscription")
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubSubscription.PNG "Pub/Sub Subscription")
 
 - Avro Schema
 
