@@ -52,12 +52,12 @@ async function getUsersActivity(req,res){
    const tableIdGameEvents = 'GameEvents';
    const query1 = `SELECT first.Date,IFNULL(first.ActiveUserCount,0) as ActiveUserCount,IFNULL(second.DailyNewUser,0) as DailyNewUser,IFNULL(third.AverageSessionDuration,0) as AverageSessionDuration 
    FROM (SELECT COUNT(DISTINCT user_id) as ActiveUserCount, CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE) as Date FROM \`${projectId}.${datasetId}.${tableIdGameEvents}\` GROUP BY CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE)) first 
-   RIGHT JOIN (SELECT COUNT(*) as DailyNewUser, CAST(timestamp_millis(CAST(insertdate AS INT64)) AS DATE) as Date 
+   FULL JOIN (SELECT COUNT(*) as DailyNewUser, CAST(timestamp_millis(CAST(insertdate AS INT64)) AS DATE) as Date 
    FROM \`${projectId}.${datasetId}.${tableId}\` GROUP BY CAST(timestamp_millis(CAST(insertdate AS INT64)) AS DATE)) second 
    ON first.Date = second.Date 
-   RIGHT JOIN (SELECT AVG(diff_in_seconds) as AverageSessionDuration,Date 
+   FULL JOIN (SELECT AVG(diff_in_seconds) as AverageSessionDuration,Date 
    FROM (SELECT user_id,session_id,CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE) as Date,TIME_DIFF(MAX(CAST(timestamp_millis(CAST(event_time AS INT64)) AS TIME)),MIN(CAST(timestamp_millis(CAST(event_time AS INT64)) AS TIME)),SECOND) diff_in_seconds from \`${projectId}.${datasetId}.${tableIdGameEvents}\` group by session_id,user_id,CAST(timestamp_millis(CAST(event_time AS INT64)) AS DATE) ) GROUP BY Date) third 
-   ON first.Date = third.Date`;
+   ON first.Date = third.Date ORDER BY Date DESC` ;
    const options1 = {
       query: query1,
       location: location 
