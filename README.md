@@ -52,30 +52,30 @@ start command:
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/responseanalysticreport.PNG "Response Analystic Report")
 
 ## GCP Pub/Sub
-- GCP Pub/Sub Topic
+- Topic
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubTopic.PNG "GCP Pub/Sub Topic")
 
-- GCP Pub/Sub Subscription
+- Subscription
 
-![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubSubscription.GCP Pub/Sub Subscription")
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubSubscription.GCP "Pub/Sub Subscription")
 
-- GCP Pub/Sub Avro Schema
+- Avro Schema
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubAvroSchema.PNG "GCP Pub/Sub Avro Schema")
 
 ## GCP Dataflow
-- GCP Dataflow Job
+- Job
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/DataFlowJobs.PNG "GCP Dataflow Job")
 
 
 ## GCP BigQuery
 
-- BigQuery Game Events Table
+- Game Events Table
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/BigQueryGameEventsTable.PNG "BigQuery Game Events Table")
 
-- BigQuery User Table
+- User Table
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/BigQueryUserTable.PNG "BigQuery User Table")
