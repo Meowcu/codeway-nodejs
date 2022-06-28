@@ -1,5 +1,5 @@
 # codeway-nodejs
-##Case of Codeway
+## Case of Codeway
 
 Codes in src folder.
 You can manage port .env file.
@@ -8,21 +8,22 @@ You can manage port .env file.
 
 - url: localhost:3000
 
-###Google Cloud Platform
+### Google Cloud Platform
   - PubSub 
   - Big Query 
   - Dataflow
 
-###Please use following command to your terminal.
+Please use following command to your terminal.
 
 - npm install
 
 (It will download dependencies(package.json) for project.)
 
-start command: 
+Start command: 
 
 - npm start
 
+### Avro Schema and Analytics
 
 - JSON Avro Message Sample
 
@@ -31,6 +32,8 @@ start command:
 - Analytics Endpoint Response Sample
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/AnalyticsEndpointResponseSample.PNG "Analytics Endpoint Response Sample")
+
+### HTML Pages (Front-end)
 
 - Login Page
 
@@ -48,8 +51,31 @@ start command:
 
 ![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/responseanalysticreport.PNG "Response Analystic Report")
 
+## GCP Pub/Sub
+- Topic
+
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubTopic.PNG "GCP Pub/Sub Topic")
+
+- Subscription
+
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubSubscription.PNG "Pub/Sub Subscription")
+
+- Avro Schema
+
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/PubSubAvroSchema.PNG "GCP Pub/Sub Avro Schema")
+
+## GCP Dataflow
+- Job
+
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/DataFlowJobs.PNG "GCP Dataflow Job")
 
 
+## GCP BigQuery
 
+- Game Events Table
 
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/BigQueryGameEventsTable.PNG "BigQuery Game Events Table")
 
+- User Table
+
+![alt text](https://github.com/Meowcu/codeway-nodejs/blob/main/docs/img/BigQueryUserTable.PNG "BigQuery User Table")
