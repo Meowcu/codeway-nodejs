@@ -3,8 +3,8 @@ var express = require('express') // server environments
 var path = require('path') //directory path usage
 var app = express(); // req/res 
 const session = require('express-session');
-var uuid = require('uuid');
 const bodyParser = require('body-parser'); // middleware
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 var routerIndex = require('./app_server/routes/indexRouter');
 var authIndex = require('./app_server/routes/authRouter');
@@ -19,11 +19,6 @@ app.use(session({
 	saveUninitialized: true
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
-app.use(function(req,res,next){
-    next();
-});
 
 app.use('/',authIndex);
 app.use('/home',routerIndex);

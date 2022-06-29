@@ -3,10 +3,6 @@ var authRouter = express.Router();
 var authController = require('../controller/AuthController');
 var env = require('dotenv').config();
 
-authRouter.use(function(req,res,next){
-    next();
-});
-
 authRouter.get('/',authController.index);
 authRouter.get('/login',authController.login);
 authRouter.get('/createUser',authController.createUser);
